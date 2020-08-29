@@ -7,14 +7,20 @@ module.exports = function(sequelize, DataTypes) {
     // The name of the store will be a string and must be unique and not empty
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     },
     //A slug is the part of a URL which identifies a particular page on a website in an easy to read form. In other words, it’s the part of the URL that explains the page’s content.
-    slug: DataTypes.STRING,
+    slug: {
+      type: DataTypes.STRING
+    },
     // The restaurant description will be able to be read and updated
-    description: DataTypes.STRING,
-    tags: [DataTypes.STRING]
+    description: {
+      type: DataTypes.TEXT,
+      tags: [DataTypes.STRING]
+    },
+    review: {
+      type: DataTypes.TEXT
+    }
   });
 
   Store.addHook("beforeCreate", store => {
